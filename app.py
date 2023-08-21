@@ -13,10 +13,21 @@ logger = logging.getLogger(__name__)
 #     logger.warning(f"Update {update} caused error {context.error}")
 #     context.bot.send_message(chat_id=update.message.chat_id, text="An error occurred while processing your request.")
 
+# def error(update, context):
+#     logger.warning(f"Update {update} caused error {context.error}")
+#     chat_id = update.message.chat_id if update.message else update.effective_chat.id
+#     context.bot.send_message(chat_id=chat_id, text="An error occurred while processing your request.")
+
 def error(update, context):
+    if update is None:
+        logger.warning("Received an update with no information.")
+        return
+
     logger.warning(f"Update {update} caused error {context.error}")
+
     chat_id = update.message.chat_id if update.message else update.effective_chat.id
     context.bot.send_message(chat_id=chat_id, text="An error occurred while processing your request.")
+
 
 
 def set_thumbnail(update, context):
