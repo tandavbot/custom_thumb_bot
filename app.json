@@ -1,0 +1,10 @@
+{
+  "name": "telegram-bot",
+  "buildCommand": null,
+  "staticPublishPath": "/app/static",
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "secure": "YOUR_BOT_TOKEN"
+    }
+  }
+}
